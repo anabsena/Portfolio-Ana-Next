@@ -177,3 +177,6 @@
   font-style: italic;
 }
 
+a {
+  transition: border-bottom 0.4s ease;
+}

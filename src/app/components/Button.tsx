@@ -2,7 +2,6 @@ import React from 'react';
 
 type ButtonProps = {
   children: React.ReactNode;
-  onClick: () => void;
   variant?: 'primary' | 'secondary' | 'danger';
   className?: string;
   disabled?: boolean;
@@ -10,7 +9,6 @@ type ButtonProps = {
 
 const Button: React.FC<ButtonProps> = ({ 
   children, 
-  onClick, 
   variant = 'primary', 
   className = '', 
   disabled = false 
@@ -28,7 +26,6 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button 
       className={classes} 
-      onClick={onClick} 
       disabled={disabled}
     >
       {children}
