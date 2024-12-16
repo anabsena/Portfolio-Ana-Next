@@ -14,13 +14,13 @@ const Icon: React.FC<IconProps> = ({
   disabled,
   text,
 }) => {
-  const classes = `bg-details/5 border border-primary/15 p-2 w-10 h-10 flex justify-center items-center rounded-full ${className}`;
+  const classes = `bg-details/5 border border-primary/15 p-2 w-8 h-8 md:w-10 md:h-10 flex justify-center items-center rounded-full ${className}`;
   return (
     <div className={`flex items-center ${text && "gap-4"}`}>
       <button className={classes} onClick={onClick} disabled={disabled}>
         {children}
       </button>
-      <span className="font-satoshi tracking-wider uppercase text-sm opacity-80">
+      <span className="font-satoshi tracking-wider uppercase text-xs md:text-sm opacity-80">
         {text}
       </span>
     </div>

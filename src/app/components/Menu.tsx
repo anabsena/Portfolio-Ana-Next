@@ -8,7 +8,7 @@ const Menu = () => {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   return (
-    <div className="fixed z-50 py-8 ">
+    <div className="fixed z-50 md:mt-8 mt-2 bg-primary">
       <div className="bg-details/5 p-3 border border-primary/15 rounded-sm flex justify-between items-center gap-12 backdrop-blur-3xl">
         <h1 className=" text-lg font-cinzel">Ana.</h1>
         <nav className={`gap-8 font-satoshi text-sm items-center hidden md:flex font-medium text-primary/80`}>

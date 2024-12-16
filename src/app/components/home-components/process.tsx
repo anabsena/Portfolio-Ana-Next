@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Icon from "../Icon";
 import { GoArrowDown } from "react-icons/go";
 type CardProps = {
@@ -61,8 +59,7 @@ const Process = () => {
       position: "right",
     },
   ];
-  
-  
+
   const ComponentCard: React.FC<CardProps> = ({
     number,
     stage,
@@ -72,18 +69,20 @@ const Process = () => {
     position,
   }) => {
     const cardContent = (
-      <div className={`bg-details/5 border border-primary/15 p-12 max-w-[560px] flex flex-col gap-6 transition-opacity duration-500 `}>
+      <div
+        className={`bg-details/5 border border-primary/15 md:p-12 p-8 max-w-[560px] flex flex-col gap-6 transition-opacity duration-500 mt-4 md:mt-0`}
+      >
         <div className="flex flex-col gap-1">
           <span className="text-xs font-bold opacity-70 font-quicksand tracking-wider uppercase">
             {stage}
           </span>
-          <h3 className="font-satoshi text-xl tracking-wider uppercase">
+          <h3 className="font-satoshi text-lg md:text-xl tracking-wider uppercase">
             {title}
           </h3>
         </div>
-        <p className="text-md font-quicksand">{content}</p>
+        <p className="md:text-md text-sm font-quicksand">{content}</p>
         {objectives && (
-          <ul className="list-disc pl-5 text-md font-quicksand flex flex-col gap-4">
+          <ul className="list-disc pl-5 md:text-md text-sm font-quicksand flex flex-col gap-4">
             {objectives.split("+").map((objective, index) => (
               <li key={index}>{objective}</li>
             ))}
@@ -91,50 +90,59 @@ const Process = () => {
         )}
       </div>
     );
-
+  
     return (
-      <div className="flex items-center gap-8 w-full relative justify-center">
+      <div className="flex items-center gap-8 w-full relative md:justify-center justify-start">
         <div
-          className={position === "left" ? "block w-1/2" : "invisible w-1/2"}
+          className={`hidden md:block ${position === "left" ? "w-1/2" : "invisible w-1/2"}`}
         >
           {cardContent}
         </div>
-        <div className="h-full w-[0.2px] bg-details/15 rounded-full absolute z-10"></div>
+        
+        <div className="h-full w-[0.2px] bg-details/15 rounded-full absolute z-10 ml-4"></div>
+  
         <div className="bg-primary py-4 z-20">
-
           <Icon>{number}</Icon>
         </div>
+  
         <div
-          className={position === "right" ? "block w-1/2" : "invisible w-1/2"}
+          className={`hidden md:block ${position === "right" ? "w-1/2" : "invisible w-1/2"}`}
         >
           {cardContent}
+        </div>
+  
+        <div className="md:hidden w-full">
+          <div
+            className={`flex ${position === "left" ? "justify-start" : "justify-end"}`}
+          >
+            {cardContent}
+          </div>
         </div>
       </div>
     );
   };
 
   return (
-    <div className="flex flex-col justify-center items-center gap-8 px-56">
+    <div className="flex flex-col justify-center items-center gap-4 md:gap-8 md:px-56 px-4">
       <h1 className="font-quicksand uppercase font-bold text-sm">O processo</h1>
       <h1
-        className="font-satoshi text-8xl font-light
+        className="font-satoshi text-5xl md:text-8xl font-light
       "
       >
         Seu Website
       </h1>
-      <h1 className="font-petit_formal_script text-6xl font-light opacity-90">
+      <h1 className="font-petit_formal_script text-4xl md:text-6xl font-light opacity-90">
         em 5 passos
       </h1>
-      <p className="text-2xl text-center w-1/4 font-light font-quicksand opacity-90">
+      <p className="text-lg md:text-2xl text-center md:w-1/4 font-light font-quicksand opacity-90">
         O processo que funciona, deixando seu site customizado ao que você
         precisa.
       </p>
-      <div className="flex flex-col items-center ">
+      <div className="flex flex-col md:items-center ">
         <div className="mb-4">
-
-        <Icon>
-          <GoArrowDown />
-        </Icon>
+          <Icon>
+            <GoArrowDown />
+          </Icon>
         </div>
         {timelineData.map((card) => (
           <ComponentCard
