@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Cinzel, Itim, Mali, Petit_Formal_Script, Quicksand, Zen_Loop } from "next/font/google";
 import "./globals.css";
 import Menu from "./components/Menu";
 
@@ -10,6 +10,18 @@ export const metadata: Metadata = {
     default: "Aninha",
   },
 };
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  weight: "400",
+});
+const petit_formal_script = Petit_Formal_Script({
+  subsets: ["latin"],
+  weight: "400",
+});
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  weight: "300",
+});
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -19,7 +31,7 @@ export default function RootLayout({
     <html lang="pt-br">
       <body className="w-full flex flex-col items-center">
         <Menu />
-        <div className="mt-16 z-40">{children}</div>
+        <div className=" z-40">{children}</div>
       </body>
     </html>
   );

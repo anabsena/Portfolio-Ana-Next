@@ -1,10 +1,16 @@
-import Image from "next/image";
+import Initial from "./components/home-components/initial";
+import Process from "./components/home-components/process";
+import Services from "./components/home-components/services";
+
+
+
 
 export default function Home() {
   return (
-    <div >
-      <h1 className="font-gambetta font-light italic">Home</h1>
-      <h1 className="font-satoshi ">Home</h1>
+    <div className="flex flex-col gap-16">
+     <Initial/>
+     <Services/>
+     <Process/>
     </div>
   );
 }

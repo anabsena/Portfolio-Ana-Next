@@ -128,6 +128,12 @@
   font-weight: 300;
   font-style: italic;
 }
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi/Satoshi-LightItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
 
 @font-face {
   font-family: 'Satoshi';
