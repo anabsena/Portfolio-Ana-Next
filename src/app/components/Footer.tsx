@@ -48,6 +48,7 @@ const Footer = () => {
             Ajudo sua empresa a se destacar no mercado com um site bonito, bem
             pensado para converter e com ótima posição no ranqueamento.
           </p>
+          {/* @ts-ignore */}
           <Button className="flex gap-2 items-center" variant="secondary">
             Entre em contato <GoArrowUpRight />
           </Button>

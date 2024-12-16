@@ -16,6 +16,7 @@ const Menu = () => {
           <a className="font-sans tracking-widest uppercase">Sobre Mim</a>
           <a className="font-sans tracking-widest uppercase">Projetos</a>
         </nav>
+        {/* @ts-ignore */}
         <Button variant="secondary">Entre em contato</Button>
 
         <div className="md:hidden flex items-center">
@@ -30,6 +31,7 @@ const Menu = () => {
           <a className="font-sans tracking-widest uppercase">Serviços</a>
           <a className="font-sans tracking-widest uppercase">Sobre Mim</a>
           <a className="font-sans tracking-widest uppercase">Projetos</a>
+          {/* @ts-ignore */}
           <Button variant="secondary">Entre em contato</Button>
         </nav>
       </div>
