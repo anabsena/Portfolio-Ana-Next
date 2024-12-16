@@ -14,8 +14,160 @@
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  body {
+    @apply text-primary bg-primary;
+  }
 }
+@font-face {
+  font-family: 'Gambetta';
+  src: url('/fonts/Gambetta-Regular.woff2') format('woff2'),
+       url('/fonts/Gambetta-Regular.woff') format('woff'),
+       url('/fonts/Gambetta-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gambetta';
+  src: url('/fonts/Gambetta-Italic.woff2') format('woff2'),
+       url('/fonts/Gambetta-Italic.woff') format('woff'),
+       url('/fonts/Gambetta-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gambetta';
+  src: url('/fonts/Gambetta-Light.woff2') format('woff2'),
+       url('/fonts/Gambetta-Light.woff') format('woff'),
+       url('/fonts/Gambetta-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gambetta';
+  src: url('/fonts/Gambetta-LightItalic.woff2') format('woff2'),
+       url('/fonts/Gambetta-LightItalic.woff') format('woff'),
+       url('/fonts/Gambetta-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gambetta';
+  src: url('/fonts/Gambetta-Medium.woff2') format('woff2'),
+       url('/fonts/Gambetta-Medium.woff') format('woff'),
+       url('/fonts/Gambetta-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gambetta';
+  src: url('/fonts/Gambetta-MediumItalic.woff2') format('woff2'),
+       url('/fonts/Gambetta-MediumItalic.woff') format('woff'),
+       url('/fonts/Gambetta-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gambetta';
+  src: url('/fonts/Gambetta-Bold.woff2') format('woff2'),
+       url('/fonts/Gambetta-Bold.woff') format('woff'),
+       url('/fonts/Gambetta-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gambetta';
+  src: url('/fonts/Gambetta-BoldItalic.woff2') format('woff2'),
+       url('/fonts/Gambetta-BoldItalic.woff') format('woff'),
+       url('/fonts/Gambetta-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gambetta';
+  src: url('/fonts/Gambetta-Semibold.woff2') format('woff2'),
+       url('/fonts/Gambetta-Semibold.woff') format('woff'),
+       url('/fonts/Gambetta-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gambetta';
+  src: url('/fonts/Gambetta-SemiboldItalic.woff2') format('woff2'),
+       url('/fonts/Gambetta-SemiboldItalic.woff') format('woff'),
+       url('/fonts/Gambetta-SemiboldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi/Satoshi-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi/Satoshi-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi/Satoshi-LightItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi/Satoshi-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi/Satoshi-MediumItalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi/Satoshi-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi/Satoshi-BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi/Satoshi-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi/Satoshi-BlackItalic.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+}
+

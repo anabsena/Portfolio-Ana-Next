@@ -9,8 +9,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: '#EDD6B6', 
+      },
+      textColor: {
+        primary: '#EDD6B6',
+        secondary: '#1D1E1F',
+      },
+      backgroundColor: {
+        primary: '#0E0E0E',
+        details: '#DAC5A7',
+      },
+      fontFamily: {
+        gambetta: ['"Gambetta"', 'serif'], 
+        satoshi: ['"Satoshi"', "sans-serif"],
       },
     },
   },
