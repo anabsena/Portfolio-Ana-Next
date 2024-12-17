@@ -18,6 +18,7 @@ const Page = () => {
         id: doc.id,
         ...doc.data(),
       }));
+      //@ts-ignore
       setProjects(projectsList);
       console.log('id projeto',projectsList)
     } catch (error) {
@@ -67,6 +68,7 @@ const Page = () => {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
         {projects.map((project) => (
+          //@ts-ignore
           <ProjectCard key={project.id} project={project} />
         ))}
       </div>

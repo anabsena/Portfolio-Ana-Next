@@ -16,6 +16,7 @@ const Page = () => {
         id: doc.id,
         ...doc.data(),
       }));
+      //@ts-ignore
       setProjects(projectsList);
     } catch (error) {
       console.error("Erro ao buscar projetos:", error);
@@ -43,6 +44,7 @@ const Page = () => {
             {projects.map((project) => (
               <div className="border-t border-primary/15">
                 <h1 className="text-xs uppercase md:text-sm font-bold opacity-70 font-quicksand tracking-wider">
+                  {/* @ts-ignore */}
                   {project.name}
                 </h1>
               </div>

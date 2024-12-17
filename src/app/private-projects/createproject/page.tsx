@@ -19,7 +19,7 @@ const Page = () => {
     results: Yup.string().required("Resultados são obrigatórios"),
     clientName: Yup.string().required("Nome do cliente é obrigatório"),
   });
-
+//@ts-ignore
   const handleSubmit = async (values) => {
     const { name, services, accessLink, challenges, objectives, results, clientName } = values;
 
