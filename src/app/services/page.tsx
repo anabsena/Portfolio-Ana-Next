@@ -3,12 +3,7 @@ import React from "react";
 import Icon from "../components/Icon";
 import { GoArrowDown } from "react-icons/go";
 
-type CardProps = {
-  children: React.ReactNode;
-  onClick?: () => void;
-  number: string;
-  title: string;
-};
+
 
 const Page = () => {
   return (

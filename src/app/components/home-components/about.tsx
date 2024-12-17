@@ -33,7 +33,7 @@ const About = () => {
             uma impressão duradoura!
           </h1>
         </div>
-        <div className="flex flex-col gap-8 md:w-1/2 text-center items-center justify-center">
+        <div className="flex flex-col gap-8 md:w-1/2 text-center ">
           <p className="font-quicksand  text-xl tracking-wider">
             Olá, sou Ana Beatriz Sena - uma freelancer especializada em serviços
             premium de web design, desenvolvimento e SEO. Sou apaixonada por
