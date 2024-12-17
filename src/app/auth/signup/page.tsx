@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import React from "react";
 import { Formik, Field, Form, ErrorMessage, FieldProps } from "formik";
@@ -61,11 +61,7 @@ const Page = () => {
                     />
                   )}
                 </Field>
-                <ErrorMessage
-                  name="name"
-                  component="div"
-                  className="text-red-500 text-sm mt-1"
-                />
+                
               </div>
 
               <div>

@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { GoArrowUpRight,GoArrowUp } from "react-icons/go";
 import Button from "./Button";
@@ -9,6 +10,18 @@ import {
   PiWhatsappLogoLight,
 } from "react-icons/pi";
 const Footer = () => {
+  const scrollToTop = () => {
+    const scrollDuration = 800; 
+    const scrollStep = -window.scrollY / (scrollDuration / 15);
+    
+    const scrollInterval = setInterval(() => {
+      if (window.scrollY <= 0) {
+        clearInterval(scrollInterval);
+      } else {
+        window.scrollBy(0, scrollStep);
+      }
+    }, 15);
+  };
   return (
     <div className="w-full">
       <div className="bg-details/5 p-3 border border-primary/15">
@@ -93,7 +106,7 @@ const Footer = () => {
       </div>
       <div className="flex justify-between mt-8 border-t border-primary/15 p-8">
         <h1>© Todos os direitos reservados </h1>
-        <Icon className="text-xl" text="Ir para o topo">
+        <Icon className="text-xl" text="Ir para o topo" onClick={scrollToTop}>
         <GoArrowUp />
         </Icon>
       </div>

@@ -29,7 +29,7 @@ const Page = () => {
         </Icon>
       </div>
 
-      <div className="bg-details/5 border border-primary/15 p-4 flex flex-col items-center gap-8 mt-12 rounded-lg shadow-lg w-full md:w-2/3 ">
+      <div className="bg-details/5 border border-primary/15 p-4 flex flex-col items-center gap-8 mt-12 rounded-sm shadow-lg w-full md:w-2/3 ">
         <h1 className="text-xs uppercase md:text-sm font-bold opacity-70 font-quicksand tracking-wider">
           Web Design
         </h1>
