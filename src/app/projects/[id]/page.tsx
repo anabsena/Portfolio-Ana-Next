@@ -23,12 +23,9 @@ const Page = ({ params }: Props) => {
 
       const selectedProject = projectsList.find((p) => p.id === id);
       setProject(selectedProject);
-      console.log(selectedProject)
+      console.log(selectedProject);
     } catch (error) {
-      console.error(
-        "                                                                                    Erro ao buscar projeto:",
-        error
-      );
+      console.error( "Erro ao buscar projeto:",error);
     }
   };
 
@@ -70,7 +67,7 @@ const Page = ({ params }: Props) => {
             Website
           </h1>
           <h1 className="text-xs uppercase md:text-sm font-bold font-quicksand tracking-wider">
-            {project.websiteUrl}
+            {project.accessLink}
           </h1>
         </div>
       </div>
@@ -79,42 +76,42 @@ const Page = ({ params }: Props) => {
       </Icon>
       <div className="border border-primary/15 mt-16">
         <Image
-          src={project.image || "/img/inicio-projetar-mais.png"} // Caso tenha imagem, exibe a do projeto, caso contrário, exibe uma padrão
+          src={project.imageBase}
           width={900}
           height={420}
           alt={project.name}
           className="opacity-70"
         />
       </div>
-      <div className="flex gap-4 w-2/3">
+      <div className="flex gap-4 w-full justify-center">
         <div className="sticky top-8 h-fit flex flex-col gap-4">
           <h1 className="text-xs uppercase md:text-sm font-bold opacity-70 font-quicksand tracking-wider">
             Serviços
           </h1>
           <h1 className="md:text-4xl text-4xl font-quicksand">
-            Web design, desenvolvimento com programação
+            {project.services}
           </h1>
           <h1 className="text-xs uppercase md:text-sm font-bold opacity-70 font-quicksand tracking-wider">
             Tecnologias utilizadas
           </h1>
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 w-1/2 ">
           <div className="bg-details/5 p-8 border border-primary/15 rounded-sm shadow-lg w-full">
             <h1 className="md:text-2xl text-xl font-quicksand">Desafio</h1>
             <p className="font-quicksand text-xl tracking-wider opacity-70 w-3/4">
-              {project.challenge}
+              {project.challenges}
             </p>
           </div>
           <div className="bg-details/5 p-8 border border-primary/15 rounded-sm shadow-lg w-full">
             <h1 className="md:text-2xl text-xl font-quicksand">Objetivo</h1>
             <p className="font-quicksand text-xl tracking-wider opacity-70 w-3/4">
-              {project.goal}
+              {project.objectives}
             </p>
           </div>
           <div className="bg-details/5 p-8 border border-primary/15 rounded-sm shadow-lg w-full">
             <h1 className="md:text-2xl text-xl font-quicksand">Resultado</h1>
             <p className="font-quicksand text-xl tracking-wider opacity-70 w-3/4">
-              {project.result}
+              {project.results}
             </p>
           </div>
         </div>

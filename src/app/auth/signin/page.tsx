@@ -10,8 +10,8 @@ import { loginWithEmailPassword } from "@/firebase/authentication";
 const Page = () => {
 const router = useRouter()
   return (
-    <div className="flex min-h-screen w-full min-w-[600px] items-center justify-center ">
-      <div className="w-full bg-details/5 border border-primary/15 p-8 rounded-sm shadow-lg">
+    <div className="flex min-h-screen w-full  items-center justify-center ">
+      <div className="w-full bg-details/5 border border-primary/15 p-8 rounded-sm shadow-lg max-w-[600px]">
         <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
         <Formik
           initialValues={{

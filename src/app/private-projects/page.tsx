@@ -11,13 +11,14 @@ const Page = () => {
 
   const fetchProjects = async () => {
     try {
-      const querySnapshot = await getDocs(collection(db, "project"));
+      const querySnapshot = await getDocs(collection(db, "projects"));
       const projectsList = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
       //@ts-ignore
       setProjects(projectsList);
+      console.log(projectsList)
     } catch (error) {
       console.error("Erro ao buscar projetos:", error);
     }

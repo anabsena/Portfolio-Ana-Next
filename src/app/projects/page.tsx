@@ -30,13 +30,17 @@ const Page = () => {
     fetchProjects();
   }, []);
   //@ts-ignore
+  // console.log(projects[0].imageUrl)
   const ProjectCard = ({ project }) => {
     return (
-      <div className="border border-primary/15 relative rounded-sm shadow-lg h-[400px] md:h-[400px] w-[700px] ">
-        {/* <div
+      <div className="border border-primary/15 relative rounded-sm shadow-lg h-[400px] ">
+        <div
           className="absolute inset-0 bg-cover opacity-50 w-full"
-          style={{ backgroundImage: `url(${project.image})` }}
-        ></div> */}
+          style={{
+            backgroundImage: `url(${project.imageBase})`
+          }}
+        ></div>
+
         <a
           href={`/projects/${project.id}`}
           className="absolute w-full h-full opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"
@@ -60,13 +64,13 @@ const Page = () => {
     );
   };
   return (
-    <div className="mt-32 w-full flex flex-col items-center text-center gap-4">
+    <div className="mt-32 w-full flex flex-col items-center text-center gap-4 ">
       <h1 className="md:text-9xl text-8xl font-quicksand">Trabalhos feitos</h1>
       <p className="font-quicksand text-2xl tracking-wider opacity-70 ">
         Meus últimos projetos de web design e veja como posso ajudar a dar vida
         às suas ideias.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:w-3/4">
         {projects.map((project) => (
           //@ts-ignore
           <ProjectCard key={project.id} project={project} />

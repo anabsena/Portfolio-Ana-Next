@@ -1,13 +1,14 @@
 "use client";
 
 import Button from "@/app/components/Button";
-import { db } from "@/firebase/firebase"; 
+import { db } from "@/firebase/firebase";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import React from "react";
+import React, {useState} from "react";
 import * as Yup from "yup";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore"; 
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 const Page = () => {
+  const [imageBase64, setImageBase64] = useState<string | null>(null);
   const validationSchema = Yup.object({
     name: Yup.string().required("Nome do projeto é obrigatório"),
     services: Yup.string().required("Serviços são obrigatórios"),
@@ -19,9 +20,30 @@ const Page = () => {
     results: Yup.string().required("Resultados são obrigatórios"),
     clientName: Yup.string().required("Nome do cliente é obrigatório"),
   });
-//@ts-ignore
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files ? e.target.files[0] : null;
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImageBase64(reader.result as string); // Armazenar a imagem em base64
+      };
+      reader.readAsDataURL(file); // Inicia a conversão para base64
+    }
+  };
+  //@ts-ignore
   const handleSubmit = async (values) => {
-    const { name, services, accessLink, challenges, objectives, results, clientName } = values;
+    const {
+      name,
+      services,
+      accessLink,
+      challenges,
+      objectives,
+      results,
+      clientName,
+      description,
+      imageBase,
+    } = values;
 
     try {
       await addDoc(collection(db, "projects"), {
@@ -32,6 +54,8 @@ const Page = () => {
         objectives,
         results,
         clientName,
+        description,
+        imageBase:imageBase64,
         createdAt: serverTimestamp(),
       });
 
@@ -45,7 +69,9 @@ const Page = () => {
   return (
     <div className="flex min-h-screen w-full min-w-[600px] items-center justify-center">
       <div className="w-full bg-details/5 border border-primary/15 p-8 rounded-sm shadow-lg flex flex-col gap-8">
-        <h2 className="text-2xl font-bold font-satoshi uppercase">Cadastre-se</h2>
+        <h2 className="text-2xl font-bold font-satoshi uppercase">
+          Cadastre-se
+        </h2>
         <Formik
           initialValues={{
             name: "",
@@ -55,7 +81,8 @@ const Page = () => {
             objectives: "",
             results: "",
             clientName: "",
-            description:"",
+            description: "",
+            imageBase: "",
           }}
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
@@ -193,6 +220,25 @@ const Page = () => {
                   />
                   <ErrorMessage
                     name="clientName"
+                    component="div"
+                    className="text-red-500 text-sm mt-1"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="imageBase">Imagem do Projeto:</label>
+                  <Field
+                    name="imageBase"
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageUpload}
+                    className={`w-full p-4 border rounded-sm bg-transparent ${
+                      errors.imageBase && touched.imageBase
+                        ? "border-red-500"
+                        : "border-primary/15"
+                    }`}
+                  />
+                  <ErrorMessage
+                    name="imageBase]"
                     component="div"
                     className="text-red-500 text-sm mt-1"
                   />

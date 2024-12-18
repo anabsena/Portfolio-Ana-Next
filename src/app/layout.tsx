@@ -32,7 +32,7 @@ export default function RootLayout({
     <html lang="pt-br">
       <body className="w-full flex flex-col items-center">
         <Menu />
-        <div className="z-40 my-8">{children}</div>
+        <div className="z-40 my-8 w-full">{children}</div>
         <Footer/>
       </body>
     </html>
