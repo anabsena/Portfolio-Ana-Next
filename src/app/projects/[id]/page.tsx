@@ -23,6 +23,7 @@ const Page = ({ params }: Props) => {
 
       const selectedProject = projectsList.find((p) => p.id === id);
       setProject(selectedProject);
+      console.log(selectedProject)
     } catch (error) {
       console.error(
         "                                                                                    Erro ao buscar projeto:",
@@ -34,7 +35,6 @@ const Page = ({ params }: Props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Resolva a promessa antes de acessar "id"
         const resolvedParams = await params;
         if (resolvedParams?.id) {
           await fetchProject(resolvedParams.id);

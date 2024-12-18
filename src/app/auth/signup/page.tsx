@@ -5,7 +5,8 @@ import { Formik, Field, Form, ErrorMessage, FieldProps } from "formik";
 import * as Yup from "yup";
 import { signUpEmailPassword } from "@/firebase/authentication";
 import Button from "@/app/components/Button";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+
 
 const Page = () => {
   const router = useRouter();
