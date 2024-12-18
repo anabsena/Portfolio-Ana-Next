@@ -13,7 +13,7 @@ import {
 const Page = () => {
   return (
     <div className="w-full flex flex-col md:flex-row items-center justify-center mt-32">
-      <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+      <div className="flex flex-col md:flex-row items-center md:items-start gap-8 w-2/3">
         <div className="sticky w-full ml-12 md:ml-0">
           <Image
             src="/img/ana-arte.png"
