@@ -1,45 +1,53 @@
-"use client"
+"use client";
 import Icon from "@/app/components/Icon";
 import { collection, getDocs } from "firebase/firestore";
 import Image from "next/image";
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GoArrowDown } from "react-icons/go";
 import { db } from "@/firebase/firebase";
 
 type Props = {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>;
 };
 
 const Page = ({ params }: Props) => {
-  const [project, setProject] = useState<any>(null); // Inicializando como null, já que vamos carregar o projeto com base no id
+  const [project, setProject] = useState<any>(null);
 
   const fetchProject = async (id: string) => {
     try {
-      // Buscando todos os projetos
       const querySnapshot = await getDocs(collection(db, "projects"));
       const projectsList = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
 
-      // Encontrar o projeto pelo id
       const selectedProject = projectsList.find((p) => p.id === id);
       setProject(selectedProject);
     } catch (error) {
-      console.error("Erro ao buscar projeto:", error);
+      console.error(
+        "                                                                                    Erro ao buscar projeto:",
+        error
+      );
     }
   };
 
   useEffect(() => {
-    if (params?.id) {
-      fetchProject(params.id); // Passa o id para a função de busca
-    }
-  }, [params?.id]); // Reexecutar quando o id mudar
+    const fetchData = async () => {
+      try {
+        // Resolva a promessa antes de acessar "id"
+        const resolvedParams = await params;
+        if (resolvedParams?.id) {
+          await fetchProject(resolvedParams.id);
+        }
+      } catch (error) {
+        console.error("Failed to fetch project:", error);
+      }
+    };
 
+    fetchData();
+  }, [params]);
   if (!project) {
-    return <div>Carregando...</div>; // Exibir algo enquanto o projeto está sendo carregado
+    return <div>Carregando...</div>;
   }
 
   return (
