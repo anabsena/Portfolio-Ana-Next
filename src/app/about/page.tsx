@@ -12,9 +12,9 @@ import {
 
 const Page = () => {
   return (
-    <div className="w-full flex items-center justify-center mt-32">
-      <div className="flex w-3/4 items-start gap-8">
-        <div className="sticky top-8 h-fit w-full">
+    <div className="w-full flex flex-col md:flex-row items-center justify-center mt-32">
+      <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+        <div className="sticky w-full ml-12 md:ml-0">
           <Image
             src="/img/ana-arte.png"
             width={420}
@@ -24,16 +24,16 @@ const Page = () => {
           />
         </div>
         <div className="flex flex-col gap-16">
-          <div className="flex flex-col gap-12">
-            <div className="flex flex-col gap-1">
-              <h1 className="md:text-9xl text-8xl font-quicksand whitespace-nowrap">
+          <div className="flex flex-col items-center md:items-start gap-4 md:gap-12">
+            <div className="flex flex-col items-center md:items-start gap-1">
+              <h1 className="md:text-9xl text-4xl font-quicksand whitespace-nowrap">
                 Ana
               </h1>
-              <h1 className="font-petit_formal_script text-8xl tracking-wider">
+              <h1 className="font-petit_formal_script md:text-8xl text-3xl tracking-wider">
                 Beatriz Sena
               </h1>
             </div>
-            <p className="font-quicksand text-2xl tracking-wider opacity-70 w-3/4">
+            <p className="font-quicksand md:text-2xl text-md text-center md:text-start tracking-wider opacity-70 w-3/4">
               Impulsionando sua empresa através do digital, com sites que
               convertem.
             </p>
@@ -41,7 +41,7 @@ const Page = () => {
               <GoArrowDown />
             </Icon>
           </div>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 p-4">
 
           <div className="bg-details/5 border border-primary/15 p-12 flex flex-col gap-8 mt-12 rounded-lg shadow-lg w-full">
             <h1 className="text-xs uppercase md:text-sm font-bold opacity-70 font-quicksand tracking-wider">
@@ -82,7 +82,7 @@ const Page = () => {
               />
             </div>
           </div>
-          <div className="w-full flex justify-between gap-4">
+          <div className="w-full flex flex-col md:flex-row justify-between gap-4">
             <Button className="w-full">
               <div className="flex justify-between p-2">
                 <div className="flex items-center gap-4">

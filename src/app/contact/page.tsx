@@ -10,9 +10,9 @@ import { GoArrowDown, GoArrowRight } from "react-icons/go";
 
 const Page = () => {
   return (
-    <div className="mt-32 flex gap-8">
+    <div className="mt-32 flex gap-8 justify-center">
       
-      <div className="sticky top-8 h-fit w-full">
+      <div className="sticky  ">
         <Image
           src="/img/ana-arte.png"
           width={420}
@@ -21,7 +21,7 @@ const Page = () => {
           className="opacity-70"
         />
       </div>
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-4 ">
 
       <div className="bg-details/5 border border-primary/15 p-12 flex flex-col gap-8 rounded-sm shadow-lg w-full">
         <h1 className="text-xs uppercase md:text-sm font-bold opacity-70 font-quicksand tracking-wider">

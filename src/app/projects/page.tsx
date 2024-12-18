@@ -30,7 +30,6 @@ const Page = () => {
     fetchProjects();
   }, []);
   //@ts-ignore
-  // console.log(projects[0].imageUrl)
   const ProjectCard = ({ project }) => {
     return (
       <div className="border border-primary/15 relative rounded-sm shadow-lg h-[400px] ">
