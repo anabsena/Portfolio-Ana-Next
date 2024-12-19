@@ -2,17 +2,51 @@
 
 import Button from "@/app/components/Button";
 import { db } from "@/firebase/firebase";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import { HiOutlineChevronDoubleLeft } from "react-icons/hi";
 import Link from "next/link";
 
-const Page = () => {
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
+const Page = ({ params }: { params: { id: string } }) => {
   const router = useRouter();
+  const [initialValues, setInitialValues] = useState<any>({
+    name: "",
+    services: "",
+    accessLink: "",
+    challenges: "",
+    objectives: "",
+    results: "",
+    clientName: "",
+  });
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+
+  const fetchProjectData = async () => {
+    try {
+      const docRef = doc(db, "projects", params.id);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        setInitialValues(data);
+        console.log(data);
+        setImagePreview(data.imageBase || null);
+      } else {
+        alert("Projeto não encontrado!");
+        router.push("/private-projects");
+      }
+    } catch (error) {
+      console.error("Erro ao buscar projeto:", error);
+      alert("Ocorreu um erro ao buscar os dados do projeto.");
+    }
+  };
+
+  useEffect(() => {
+    fetchProjectData();
+  }, []);
+
   const validationSchema = Yup.object({
     name: Yup.string().required("Nome do projeto é obrigatório"),
     services: Yup.string().required("Serviços são obrigatórios"),
@@ -33,49 +67,40 @@ const Page = () => {
       reader.onloadend = () => {
         setImagePreview(reader.result as string);
       };
-      reader.readAsDataURL(file); 
+      reader.readAsDataURL(file);
     }
   };
 
   const handleSubmit = async (values: any) => {
     try {
-      await addDoc(collection(db, "projects"), {
+      const docRef = doc(db, "projects", params.id);
+      await updateDoc(docRef, {
         ...values,
         imageBase: imagePreview,
-        createdAt: serverTimestamp(),
       });
 
-      alert("Projeto postado com sucesso!");
+      alert("Projeto atualizado com sucesso!");
+      router.push("/private-projects");
     } catch (error) {
-      console.error("Erro ao postar projeto:", error);
-      alert("Ocorreu um erro ao postar o projeto.");
+      console.error("Erro ao atualizar projeto:", error);
+      alert("Ocorreu um erro ao atualizar o projeto.");
     }
   };
 
   return (
-    <div className="flex flex-col min-h-screen w-full items-center justify-center  p-4">
-      <div className="w-full border border-primary/40 p-8 rounded-lg shadow-md max-w-[1200px] flex flex-col gap-4">
-        <div className="flex">
-
+    <div className="flex min-h-screen w-full items-center justify-center  p-4">
+      <div className="w-full border border-primary/40 p-8 rounded-lg shadow-md max-w-[1200px]">
         <Link href="/private-projects">
           <Button className="flex justify-center items-center gap-4">
             <HiOutlineChevronDoubleLeft /> Voltar
           </Button>
         </Link>
-        </div>
         <h2 className="text-3xl font-bold mb-6">Cadastrar Projeto</h2>
         <Formik
-          initialValues={{
-            name: "",
-            services: "",
-            accessLink: "",
-            challenges: "",
-            objectives: "",
-            results: "",
-            clientName: "",
-          }}
+          initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
+          enableReinitialize
         >
           {({ isSubmitting, errors, touched }) => (
             <Form className="flex flex-col gap-6">
@@ -241,7 +266,7 @@ const Page = () => {
               </div>
               <div className="flex justify-end">
                 <Button disabled={isSubmitting}>
-                  {isSubmitting ? "Carregando..." : "Postar Projeto"}
+                  {isSubmitting ? "Carregando..." : "Salvar Alterações"}
                 </Button>
               </div>
             </Form>
