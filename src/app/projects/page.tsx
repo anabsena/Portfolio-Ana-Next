@@ -30,6 +30,7 @@ const Page = () => {
         id: doc.id,
         ...doc.data(),
       }));
+      // @ts-ignore
       setProjects(projectsList);
       setIsLoading(false);
     } catch (error) {
