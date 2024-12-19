@@ -53,6 +53,7 @@ const Page = () => {
   useEffect(() => {
     fetchProjects();
   }, []);
+  
 
   return (
     <div className="mt-20 flex justify-center">
