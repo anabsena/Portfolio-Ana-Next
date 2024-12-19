@@ -28,6 +28,7 @@ const Page = ({ params }: Props ) => {
 
   const fetchProjectData = async () => {
     try {
+      //@ts-ignore
       const docRef = doc(db, "projects", params.id);
       const docSnap = await getDoc(docRef);
 
@@ -76,6 +77,7 @@ const Page = ({ params }: Props ) => {
 
   const handleSubmit = async (values: any) => {
     try {
+      //@ts-ignore
       const docRef = doc(db, "projects", params.id);
       await updateDoc(docRef, {
         ...values,
