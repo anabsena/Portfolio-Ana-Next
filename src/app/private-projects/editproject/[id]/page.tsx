@@ -9,8 +9,11 @@ import * as Yup from "yup";
 import { useRouter } from "next/navigation";
 import { HiOutlineChevronDoubleLeft } from "react-icons/hi";
 import Link from "next/link";
+type Props = {
+  params: Promise<{ id: string }>;
+};
 
-const Page = ({ params }: { params: { id: string } }) => {
+const Page = ({ params }: Props ) => {
   const router = useRouter();
   const [initialValues, setInitialValues] = useState<any>({
     name: "",
