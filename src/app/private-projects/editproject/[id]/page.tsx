@@ -9,6 +9,9 @@ import * as Yup from "yup";
 import { useRouter } from "next/navigation";
 import { HiOutlineChevronDoubleLeft } from "react-icons/hi";
 import Link from "next/link";
+import Icon from "@/app/components/Icon";
+import { AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
+
 type Props = {
   params: Promise<{ id: string }>;
 };
@@ -23,8 +26,11 @@ const Page = ({ params }: Props ) => {
     objectives: "",
     results: "",
     clientName: "",
+    description:"",
+    tecsUsed:[]
   });
   const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [technologies, setTechnologies] = useState<string[]>([]);
 
   const fetchProjectData = async () => {
     try {
@@ -37,6 +43,7 @@ const Page = ({ params }: Props ) => {
         setInitialValues(data);
         console.log(data);
         setImagePreview(data.imageBase || null);
+        setTechnologies(data.tecsUseds || []);
       } else {
         alert("Projeto não encontrado!");
         router.push("/private-projects");
@@ -81,6 +88,7 @@ const Page = ({ params }: Props ) => {
       const docRef = doc(db, "projects", params.id);
       await updateDoc(docRef, {
         ...values,
+        tecsUseds: technologies,
         imageBase: imagePreview,
       });
 
@@ -91,7 +99,21 @@ const Page = ({ params }: Props ) => {
       alert("Ocorreu um erro ao atualizar o projeto.");
     }
   };
+  const handleAddTechnology = () => {
+    setTechnologies([...technologies, ""]);
+  };
 
+  const handleRemoveTechnology = (index: number) => {
+    const updatedTechnologies = technologies.filter((_, i) => i !== index);
+    setTechnologies(updatedTechnologies);
+  };
+
+  const handleTechnologyChange = (index: number, value: string) => {
+    const updatedTechnologies = [...technologies];
+    updatedTechnologies[index] = value;
+    setTechnologies(updatedTechnologies);
+  };
+  console.log(technologies)
   return (
     <div className="flex min-h-screen w-full items-center justify-center  p-4">
       <div className="w-full border border-primary/40 p-8 rounded-lg shadow-md max-w-[1200px]">
@@ -187,7 +209,26 @@ const Page = ({ params }: Props ) => {
                   />
                 </div>
               </div>
-
+              <div className="flex flex-col gap-2">
+                <label htmlFor="description" className="block font-medium">
+                  Descrição:
+                </label>
+                <Field
+                  as="textarea"
+                  name="description"
+                  rows={4}
+                  className={`w-full p-3 border rounded-sm bg-transparent ${
+                    errors.description && touched.description
+                      ? "border-red-500"
+                      : "border-primary/40"
+                  }`}
+                />
+                <ErrorMessage
+                  name="challenges"
+                  component="div"
+                  className="text-red-500 text-sm mt-1"
+                />
+              </div>
               <div className="flex flex-col gap-2">
                 <label htmlFor="challenges" className="block font-medium">
                   Desafios:
@@ -250,7 +291,34 @@ const Page = ({ params }: Props ) => {
                   className="text-red-500 text-sm mt-1"
                 />
               </div>
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center justify-between">
 
+                <label htmlFor="tecsUseds" className="block font-medium">
+                  Tecnologias Utilizadas:
+                </label>
+                <Icon onClick={handleAddTechnology}> <AiOutlinePlus /></Icon>
+                </div>
+                {technologies.map((technology, index) => (
+                  <div key={index} className="flex items-center gap-2">
+                    <input
+                      type="text"
+                      value={technology}
+                      onChange={(e) => handleTechnologyChange(index, e.target.value)}
+                      className="w-full p-3 border rounded-sm bg-transparent border-primary/40"
+                    />
+                    <Icon onClick={() => handleRemoveTechnology(index)}> <AiOutlineDelete /></Icon>
+                   
+                  </div>
+                ))}
+                 
+               
+                <ErrorMessage
+                  name="tecsUseds"
+                  component="div"
+                  className="text-red-500 text-sm mt-1"
+                />
+              </div>
               <div className="flex flex-col gap-2">
                 <label htmlFor="imageBase" className="block font-medium">
                   Imagem do Projeto:

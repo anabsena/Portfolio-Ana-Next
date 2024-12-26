@@ -46,6 +46,7 @@ const Page = () => {
       await addDoc(collection(db, "projects"), {
         ...values,
         imageBase: imagePreview,
+        tecsUseds: technologies,
         createdAt: serverTimestamp(),
       });
 
@@ -306,7 +307,7 @@ const Page = () => {
                 )}
               </div>
               <div className="flex justify-end">
-                <Button disabled={isSubmitting}>
+                <Button disabled={isSubmitting} type="submit">
                   {isSubmitting ? "Carregando..." : "Postar Projeto"}
                 </Button>
               </div>

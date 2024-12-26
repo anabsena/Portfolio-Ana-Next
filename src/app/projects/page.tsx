@@ -5,6 +5,14 @@ import { GoArrowUpRight } from "react-icons/go";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/firebase/firebase";
 
+// Definindo a tipagem para o projeto
+interface Project {
+  id: string;
+  name: string;
+  services: string;
+  imageBase: string;
+}
+
 const SkeletonCard = () => {
   return (
     <div className="border border-primary/15 relative rounded-sm shadow-lg h-[400px] animate-pulse">
@@ -20,22 +28,23 @@ const SkeletonCard = () => {
 };
 
 const Page = () => {
-  const [projects, setProjects] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); 
-  
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   const fetchProjects = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, "projects"));
       const projectsList = querySnapshot.docs.map((doc) => ({
         id: doc.id,
-        ...doc.data(),
+        name: doc.data().name,
+        services: doc.data().services || "", // Caso 'services' seja opcional
+        imageBase: doc.data().imageBase || "", // Caso 'imageBase' seja opcional
       }));
-      // @ts-ignore
       setProjects(projectsList);
       setIsLoading(false);
     } catch (error) {
       console.error("Erro ao buscar projetos:", error);
-      setIsLoading(false); 
+      setIsLoading(false);
     }
   };
 
@@ -43,8 +52,8 @@ const Page = () => {
     fetchProjects();
   }, []);
 
-  //@ts-ignore
-  const ProjectCard = ({ project }) => {
+  // Tipando as props do ProjectCard
+  const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
     return (
       <div className="border border-primary/15 relative rounded-sm shadow-lg h-[400px]">
         <div
@@ -88,9 +97,8 @@ const Page = () => {
         {isLoading
           ? Array.from({ length: 4 }).map((_, index) => (
               <SkeletonCard key={index} />
-            )) 
+            ))
           : projects.map((project) => (
-              //@ts-ignore
               <ProjectCard key={project.id} project={project} />
             ))}
       </div>
