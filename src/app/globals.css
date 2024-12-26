@@ -201,3 +201,14 @@ a {
 .circular-float-animation {
   animation: smoothCircularMotion 8s ease-in-out infinite;
 }
+.animate-scroll {
+  animation: scroll 15s linear infinite;
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

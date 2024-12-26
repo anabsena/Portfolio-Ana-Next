@@ -22,8 +22,72 @@ const Initial = () => {
       <div className="flex flex-col gap-12 text-center items-center">
         <p className="text-xl md:text-2xl text-center md:w-1/2 font-light font-quicksand opacity-90">
           Ajudo sua empresa a se destacar no mercado com um site bonito, bem
-          pensado para converter e com ótima posição no ranqueamento.
+          pensado para converter.
         </p>
+        <div className="w-full md:w-1/3 overflow-hidden mt-8">
+          <div className="flex justify-center animate-scroll gap-8">
+            <img src="/img/icons/html.png" alt="HTML" className="w-16 h-16" />
+            <img src="/img/icons/css.png" alt="CSS" className="w-16 h-16" />
+            <img src="/img/icons/react.png" alt="React" className="w-16 h-16" />
+            <img
+              src="/img/icons/next.png"
+              alt="Next.js"
+              className="w-16 h-16"
+            />
+            <img
+              src="/img/icons/prisma.png"
+              alt="Prisma"
+              className="w-16 h-16"
+            />
+            <img
+              src="/img/icons/swagger.png"
+              alt="Swagger"
+              className="w-16 h-16"
+            />
+            <img
+              src="/img/icons/tailwind.png"
+              alt="Tailwind CSS"
+              className="w-16 h-16"
+            />
+            <img
+              src="/img/icons/mui.png"
+              alt="Material-UI"
+              className="w-16 h-16"
+            />
+            <img src="/img/icons/figma.png" alt="Figma" className="w-16 h-16" />
+            <img src="/img/icons/nest.png" alt="NestJS" className="w-16 h-16" />
+            <img src="/img/icons/html.png" alt="HTML" className="w-16 h-16" />
+            <img src="/img/icons/css.png" alt="CSS" className="w-16 h-16" />
+            <img src="/img/icons/react.png" alt="React" className="w-16 h-16" />
+            <img
+              src="/img/icons/next.png"
+              alt="Next.js"
+              className="w-16 h-16"
+            />
+            <img
+              src="/img/icons/prisma.png"
+              alt="Prisma"
+              className="w-16 h-16"
+            />
+            <img
+              src="/img/icons/swagger.png"
+              alt="Swagger"
+              className="w-16 h-16"
+            />
+            <img
+              src="/img/icons/tailwind.png"
+              alt="Tailwind CSS"
+              className="w-16 h-16"
+            />
+            <img
+              src="/img/icons/mui.png"
+              alt="Material-UI"
+              className="w-16 h-16"
+            />
+            <img src="/img/icons/figma.png" alt="Figma" className="w-16 h-16" />
+            <img src="/img/icons/nest.png" alt="NestJS" className="w-16 h-16" />
+          </div>
+        </div>
         <Icon text="Meus serviços">
           <GoArrowDown />
         </Icon>

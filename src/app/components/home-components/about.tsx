@@ -33,10 +33,9 @@ const About = () => {
             uma impressão duradoura!
           </h1>
         </div>
-        <div className="flex flex-col gap-8 md:w-1/2 text-center ">
+        <div className="flex flex-col gap-8 md:w-1/2 ">
           <p className="font-quicksand  text-xl tracking-wider">
-            Olá, sou Ana Beatriz Sena - uma freelancer especializada em serviços
-            premium de web design, desenvolvimento e SEO. Sou apaixonada por
+            Olá, sou Ana Beatriz Sena, desenvolvedora web e UIUX designer. Sou apaixonada por
             criar soluções únicas e eficazes para meus clientes e trago um toque
             pessoal a cada projeto. Vamos trabalhar juntos para dar vida à sua
             visão!

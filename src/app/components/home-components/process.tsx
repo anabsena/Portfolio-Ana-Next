@@ -26,8 +26,8 @@ const Process = () => {
       stage: "Planejamento",
       title: "Conceito e estratégia",
       content:
-        "Juntos, desenvolvemos uma estratégia que combina com sucesso seus objetivos com as necessidades do seu público-alvo. Com base nesse conceito, crio os primeiros wireframes e um protótipo interativo. Isso nos dá uma ótima impressão do site e da interface do usuário.",
-      objectives: "UX Design+Wireframes+Portotipo interativo",
+        "Juntos, desenvolvemos uma estratégia que combina com sucesso seus objetivos com as necessidades do seu público-alvo. Com base nesse conceito, crio os primeiros wireframes e faço uma pesquisa de mercado para ver o que seus principais concorrentes tem de diferenciais. Isso nos dá uma ótimas ideias para o site e da interface do usuário.",
+      objectives: "UX Design+Wireframes",
       position: "left",
     },
     {
@@ -35,7 +35,7 @@ const Process = () => {
       stage: "Hora da mágica",
       title: "web Design",
       content:
-        "Agora vem a mágica. Com base no conceito desenvolvido anteriormente, eu crio um design de tela de alta qualidade perfeitamente adaptado à sua marca. Um web design que o diferencia da concorrência, se adapta perfeitamente ao seu público-alvo e fornece uma excelente experiência do usuário.",
+        "Agora vem a mágica. Com base no conceito desenvolvido anteriormente, eu crio um design de tela de alta qualidade perfeitamente adaptado à sua marca. Um web design que o diferencia da concorrência, se adapta perfeitamente ao seu público-alvo e fornece uma excelente experiência do usuário, aqui você verá as páginas desenhadas no Figma para aprová-las.",
       objectives:
         "Design de web de alta qualidade adaptado à sua marca+Protótipo interativo do design",
       position: "right",
@@ -45,9 +45,9 @@ const Process = () => {
       stage: "Mais magica",
       title: "Desenvolvimento",
       content:
-        "Nesta etapa, onde tudo ganha vida, o design agora vai para o ar, e seu site logo estará disponível na internet te destacando da sua concorrência. Com animações incríveis e estratégias de SEO que fazem seu site ficar no topo.",
+        "Nesta etapa, onde tudo ganha vida, o design agora vai para o ar, e seu site logo estará disponível na internet te destacando da sua concorrência. Escolhemos a melhor tecnologia para desenvolver o site, pensando na velocidade e necessidade que seu negócio terá.",
       objectives:
-        "Site personalizado+Pensado em todas as animações necessárias+Estratégias de SEO",
+        "Site personalizado+Tecnologia bem pensada+Estratégias de SEO",
       position: "left",
     },
     {
@@ -55,7 +55,7 @@ const Process = () => {
       stage: "Prontinho",
       title: "Site no ar",
       content:
-        "Agora só manter tudo rodando e deixar o site fazer sua mágica, trazendo novos clientes e te deixando cada vez mais reconhecido neste mundo que é tão grande! Te darei todo o suporte quando precisar!",
+        "Agora só manter tudo rodando e deixar o site fazer sua mágica, trazendo novos clientes e te deixando cada vez mais reconhecido neste mundo que é tão grande!",
       position: "right",
     },
   ];
