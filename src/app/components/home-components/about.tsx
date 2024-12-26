@@ -11,7 +11,7 @@ import {
 const About = () => {
   return (
     <div className="flex flex-col justify-center items-center gap-12 px-4">
-      <div className="flex items-center justify-center gap-8 overflow-hidden flex-col md:flex-row">
+      <div className="flex items-center justify-center gap-8 overflow-hidden flex-col xl:flex-row">
         <h1 className="md:text-9xl text-6xl font-quicksand whitespace-nowrap">
           Ana Beatriz
         </h1>
@@ -22,7 +22,7 @@ const About = () => {
           alt="Logo Ana"
           className="opacity-70"
         />
-        <h1 className="text-9xl font-quicksand whitespace-nowrap md:flex hidden">
+        <h1 className="text-9xl font-quicksand whitespace-nowrap xl:flex hidden">
           Ana Beatriz
         </h1>
       </div>
@@ -33,7 +33,7 @@ const About = () => {
             uma impressão duradoura!
           </h1>
         </div>
-        <div className="flex flex-col gap-8 md:w-1/2 ">
+        <div className="flex flex-col gap-8 xl:w-1/2 ">
           <p className="font-quicksand  text-xl tracking-wider">
             Olá, sou Ana Beatriz Sena, desenvolvedora web e UIUX designer. Sou apaixonada por
             criar soluções únicas e eficazes para meus clientes e trago um toque
