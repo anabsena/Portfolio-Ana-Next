@@ -3,18 +3,17 @@ import React from "react";
 import Icon from "../components/Icon";
 import { GoArrowDown } from "react-icons/go";
 
-
-
 const Page = () => {
   return (
     <div className="min-h-screen flex flex-col justify-center items-center gap-8 px-4">
       <div className="text-center min-h-screen flex flex-col justify-center items-center gap-8">
         <h1 className="font-satoshi text-5xl md:text-9xl font-light mb-4">
-          Web Design
+          Serviços
         </h1>
         <p className="text-xl md:text-2xl font-light font-quicksand opacity-90 max-w-2xl mx-auto">
-          Serviços premium de design, desenvolvimento e SEO para ajudar sua
-          empresa a se destacar.
+          Criando soluções personalizadas cada projeto demanda um estilo único e
+          tecnologias diferentes, aqui cada passo é pensado com atenção com foco
+          na experiência digital.
         </p>
         <Image
           src="/img/web-design-tab.png"
