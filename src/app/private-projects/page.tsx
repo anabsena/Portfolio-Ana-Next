@@ -72,7 +72,7 @@ const Page = () => {
   }, []);
 
   return (
-    <div className="mt-20 flex justify-center min-h-screen">
+    <div className="mt-20 flex justify-center min-h-screen w-full">
       <div className="w-full max-w-[1200px] flex flex-col gap-4">
         <div className="flex justify-between items-center">
           <h1 className="text-3xl font-bold">Painel de Projetos</h1>
