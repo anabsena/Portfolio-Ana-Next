@@ -37,8 +37,8 @@ const Page = () => {
       const projectsList = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         name: doc.data().name,
-        services: doc.data().services || "", // Caso 'services' seja opcional
-        imageBase: doc.data().imageBase || "", // Caso 'imageBase' seja opcional
+        services: doc.data().services || "", 
+        imageBase: doc.data().imageBase || "", 
       }));
       setProjects(projectsList);
       setIsLoading(false);

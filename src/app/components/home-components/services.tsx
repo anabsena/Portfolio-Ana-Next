@@ -1,13 +1,6 @@
 import React from "react";
 import Icon from "../Icon";
 import { GoArrowUpRight } from "react-icons/go";
-import {
-  FaGlobe,
-  FaUserTie,
-  FaProjectDiagram,
-  FaShoppingCart,
-  FaFileAlt,
-} from "react-icons/fa";
 import { CgWebsite } from "react-icons/cg";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
 import { LuRefreshCcw } from "react-icons/lu";
@@ -107,11 +100,9 @@ const Services = () => {
               <div className="w-20 h-20 flex items-center justify-center bg-details/5 border border-primary/15 rounded-full">
                 <span className="opacity-80">{card.icon}</span>
               </div>
-              {/* Título */}
               <h3 className="font-satoshi text-lg md:text-xl uppercase">
                 {card.title}
               </h3>
-              {/* Descrição */}
               <p className="text-sm md:text-base font-quicksand opacity-70">
                 {card.description}
               </p>

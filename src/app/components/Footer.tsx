@@ -10,9 +10,10 @@ import {
   PiInstagramLogoLight,
   PiWhatsappLogoLight,
 } from "react-icons/pi";
+import Link from "next/link";
 
 const Footer = () => {
-  const pathname = usePathname(); // Hook para obter a rota ativa
+  const pathname = usePathname(); 
 
   const scrollToTop = () => {
     const scrollDuration = 800;
@@ -54,9 +55,9 @@ const Footer = () => {
             Ajudo sua empresa a se destacar no mercado com um site bonito, bem
             pensado para converter e com ótima posição no ranqueamento.
           </p>
-          <Button className="flex gap-2 items-center" variant="secondary">
-            Entre em contato <GoArrowUpRight />
-          </Button>
+          <Link href="/contact">
+            <Button variant="secondary" className="flex gap-2 items-center">Entre em contato<GoArrowUpRight /></Button>
+          </Link>
         </div>
       </div>
       <div className="flex justify-around pt-28">

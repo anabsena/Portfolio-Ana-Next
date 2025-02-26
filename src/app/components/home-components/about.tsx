@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import Icon from "../Icon";
@@ -41,17 +42,26 @@ const About = () => {
             visão!
           </p>
           <div className="flex gap-2">
-            <Icon className="text-xl">
+            <Icon className="text-xl" onClick={() => window.open("https://github.com/anabsena", "_blank")}>
               <PiGithubLogoLight />
             </Icon>
-            <Icon className="text-xl">
+            <Icon className="text-xl" onClick={() =>
+                window.open(
+                  "https://www.linkedin.com/in/ana-beatriz-sena-546b6722a/",
+                  "_blank"
+                )
+              }>
               <PiLinkedinLogoLight />
             </Icon>
-            <Icon className="text-xl">
+            <Icon className="text-xl" onClick={() =>
+                window.open("https://www.instagram.com/ana_beatriz_sena/", "_blank")
+              }>
               <PiInstagramLogoLight />
             </Icon>
-            <Icon className="text-xl">
-              <PiWhatsappLogoLight />
+            <Icon className="text-xl" onClick={() =>
+                window.open("https://wa.me/5543999274825", "_blank")
+              }>
+              <PiWhatsappLogoLight  />
             </Icon>
           </div>
         </div>
