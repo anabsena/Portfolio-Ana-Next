@@ -5,7 +5,6 @@ import { GoArrowUpRight } from "react-icons/go";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/firebase/firebase";
 
-// Definindo a tipagem para o projeto
 interface Project {
   id: string;
   name: string;
@@ -52,10 +51,9 @@ const Page = () => {
     fetchProjects();
   }, []);
 
-  // Tipando as props do ProjectCard
   const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
     return (
-      <div className="border border-primary/15 relative rounded-sm shadow-lg h-[400px]">
+      <div className="border border-primary/15 relative rounded-sm shadow-lg sm:h-[400px] h-[220px]">
         <div
           className="absolute inset-0 bg-cover opacity-50 w-full"
           style={{
@@ -73,7 +71,7 @@ const Page = () => {
         </a>
 
         <div className="w-full h-full flex flex-col justify-end p-4">
-          <div className="rounded-sm w-full p-4 bg-primary/40 border border-primary/15 backdrop-blur-sm flex justify-between items-center">
+          <div className="rounded-sm w-full p-4 bg-primary/40 border border-primary/15 backdrop-blur-sm flex flex-col sm:flex-row justify-between items-center">
             <h2 className="text-primary text-2xl font-bold font-quicksand capitalize">
               {project.name}
             </h2>
@@ -87,15 +85,15 @@ const Page = () => {
   };
 
   return (
-    <div className="mt-32 w-full flex flex-col items-center text-center gap-4">
-      <h1 className="md:text-9xl text-8xl font-quicksand">Trabalhos feitos</h1>
-      <p className="font-quicksand text-2xl tracking-wider opacity-70 ">
+    <div className="md:mt-32 mt-16 w-full flex flex-col items-center text-center gap-4">
+      <h1 className="md:text-9xl lg:text-8xl text-5xl font-quicksand">Trabalhos feitos</h1>
+      <p className="font-quicksand text-xl tracking-wider opacity-70 ">
         Meus últimos projetos de web design e veja como posso ajudar a dar vida
         às suas ideias.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:w-3/4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:w-3/4 w-full p-4 lg:p-0">
         {isLoading
-          ? Array.from({ length: 4 }).map((_, index) => (
+          ? Array.from({ length: 2 }).map((_, index) => (
               <SkeletonCard key={index} />
             ))
           : projects.map((project) => (

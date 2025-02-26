@@ -67,9 +67,9 @@ const Menu = () => {
           >
             Projetos
           </Link>
-          <Link href="/contact">
+          {/* <Link href="/contact">
             <Button variant="secondary">Entre em contato</Button>
-          </Link>
+          </Link> */}
         </nav>
       </div>
     </div>
