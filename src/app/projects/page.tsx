@@ -14,7 +14,7 @@ interface Project {
 
 const SkeletonCard = () => {
   return (
-    <div className="border border-primary/15 relative rounded-sm shadow-lg h-[400px] animate-pulse">
+    <div className="border border-primary/15 relative rounded-sm shadow-lg sm:h-[400px] h-[220px] animate-pulse">
       <div className="absolute inset-0 bg-gray-300/50 opacity-50 w-full"></div>
       <div className="w-full h-full flex flex-col justify-end p-4">
         <div className="rounded-sm w-full p-4 bg-gray-300/50 border border-primary/15 backdrop-blur-sm flex justify-between items-center">

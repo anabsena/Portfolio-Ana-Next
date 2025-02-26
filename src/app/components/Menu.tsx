@@ -67,9 +67,6 @@ const Menu = () => {
           >
             Projetos
           </Link>
-          {/* <Link href="/contact">
-            <Button variant="secondary">Entre em contato</Button>
-          </Link> */}
         </nav>
       </div>
     </div>
