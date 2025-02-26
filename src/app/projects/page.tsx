@@ -69,7 +69,9 @@ const Page = () => {
             <GoArrowUpRight />
           </Icon>
         </a>
-
+        <a
+          href={`/projects/${project.id}`}
+        >
         <div className="w-full h-full flex flex-col justify-end p-4">
           <div className="rounded-sm w-full p-4 bg-primary/40 border border-primary/15 backdrop-blur-sm flex flex-col sm:flex-row justify-between items-center">
             <h2 className="text-primary text-2xl font-bold font-quicksand capitalize">
@@ -80,6 +82,7 @@ const Page = () => {
             </p>
           </div>
         </div>
+        </a>
       </div>
     );
   };
