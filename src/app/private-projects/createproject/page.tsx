@@ -11,6 +11,7 @@ import { HiOutlineChevronDoubleLeft } from "react-icons/hi";
 import Link from "next/link";
 import { AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
 import Icon from "@/app/components/Icon";
+import { onAuthStateChanged } from "firebase/auth";
 
 const Page = () => {
   const [imagePreview, setImagePreview] = useState<string | null>(null);

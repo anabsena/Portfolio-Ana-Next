@@ -1,36 +1,42 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Button from "../components/Button";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { db } from "@/firebase/firebase";
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import Button from "../components/Button";
+import Link from "next/link";
 import { HiDotsVertical } from "react-icons/hi";
 import Message from "../components/Message";
 import ConfirmModal from "../components/ConfirmModal";
+
 interface Project {
   id: string;
   name: string;
 }
+
 const Page = () => {
   const [projects, setProjects] = useState<Project[] | undefined>();
   const [isLoading, setIsLoading] = useState(true);
   const [openMenuId, setOpenMenuId] = useState<string | null>(null);
-  const [message, setMessage] = useState<{
-    text: string;
-    type: "success" | "error";
-  } | null>(null);
+  const [message, setMessage] = useState<{ text: string; type: "success" | "error" } | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(
-    null
-  );
+  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
 
-  const toggleMenu = (projectId: string) => {
-    setOpenMenuId((prevState) => (prevState === projectId ? null : projectId));
-  };
+  const router = useRouter();
+  const auth = getAuth();
 
-  const closeMenu = () => {
-    setOpenMenuId(null);
-  };
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        router.push("/");
+      } else {
+        fetchProjects();
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const fetchProjects = async () => {
     try {
@@ -52,9 +58,7 @@ const Page = () => {
       try {
         await deleteDoc(doc(db, "projects", selectedProjectId));
         setProjects(
-          (prevProjects) =>
-            prevProjects &&
-            prevProjects.filter((project) => project.id !== selectedProjectId)
+          (prevProjects) => prevProjects && prevProjects.filter((project) => project.id !== selectedProjectId)
         );
         setMessage({ text: "Projeto excluído com sucesso!", type: "success" });
       } catch (error) {
@@ -67,10 +71,6 @@ const Page = () => {
     }
   };
 
-  useEffect(() => {
-    fetchProjects();
-  }, []);
-
   return (
     <div className="mt-20 flex justify-center min-h-screen w-full">
       <div className="w-full max-w-[1200px] flex flex-col gap-4">
@@ -82,16 +82,12 @@ const Page = () => {
         </div>
 
         <div className="shadow-md rounded-sm p-4">
-          <h2 className="text-lg font-semibold border-b border-primary/15 pb-4">
-            Meus Projetos
-          </h2>
+          <h2 className="text-lg font-semibold border-b border-primary/15 pb-4">Meus Projetos</h2>
 
           {isLoading ? (
             <p className="text-center mt-6">Carregando projetos...</p>
           ) : projects && projects.length === 0 ? (
-            <p className="text-center mt-6">
-              Você ainda não tem projetos cadastrados.
-            </p>
+            <p className="text-center mt-6">Você ainda não tem projetos cadastrados.</p>
           ) : (
             <div className="mt-4 flex w-full gap-4 flex-col">
               {projects &&
@@ -100,26 +96,13 @@ const Page = () => {
                     key={project.id}
                     className="border border-primary/15 bg-details/5 p-4 rounded-sm hover:shadow-lg transition-shadow duration-200 flex justify-between w-full"
                   >
-                    <h3 className="text-xl font-semibold capitalize mb-4">
-                      {project.name}
-                    </h3>
+                    <h3 className="text-xl font-semibold capitalize mb-4">{project.name}</h3>
                     <div className="relative">
-                      <HiDotsVertical
-                        onClick={() => toggleMenu(project.id)}
-                        className="text-xl cursor-pointer"
-                      />
+                      <HiDotsVertical onClick={() => setOpenMenuId(openMenuId === project.id ? null : project.id)} className="text-xl cursor-pointer" />
                       {openMenuId === project.id && (
                         <div className="absolute top-0 right-0 mt-2 px-4 border border-primary/15 bg-details/5 shadow-lg rounded-sm">
-                          <Link
-                            href={`/private-projects/editproject/${project.id}`}
-                            passHref
-                          >
-                            <button
-                              className="block text-sm p-2"
-                              onClick={closeMenu}
-                            >
-                              Editar
-                            </button>
+                          <Link href={`/private-projects/editproject/${project.id}`} passHref>
+                            <button className="block text-sm p-2" onClick={() => setOpenMenuId(null)}>Editar</button>
                           </Link>
                           <hr className="border-primary/15" />
                           <button
@@ -127,7 +110,7 @@ const Page = () => {
                             onClick={() => {
                               setSelectedProjectId(project.id);
                               setIsModalOpen(true);
-                              closeMenu();
+                              setOpenMenuId(null);
                             }}
                           >
                             Excluir
@@ -142,20 +125,8 @@ const Page = () => {
         </div>
       </div>
 
-      {message && (
-        <Message
-          message={message.text}
-          type={message.type}
-          onClose={() => setMessage(null)}
-        />
-      )}
-
-      <ConfirmModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        onConfirm={handleDelete}
-        message="Tem certeza que deseja excluir este projeto?"
-      />
+      {message && <Message message={message.text} type={message.type} onClose={() => setMessage(null)} />}
+      <ConfirmModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onConfirm={handleDelete} message="Tem certeza que deseja excluir este projeto?" />
     </div>
   );
 };
