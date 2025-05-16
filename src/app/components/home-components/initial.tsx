@@ -8,7 +8,7 @@ const Initial = () => {
     <div className="flex flex-col items-center gap-4 mt-8">
       <Image
         src="/img/ana-arte.png"
-        width={350}
+        width={450}
         height={760}
         alt="Logo ana"
         className="opacity-70 circular-float-animation"
