@@ -20,7 +20,7 @@ const Services = () => {
     onClick,
   }) => {
     return (
-      <div className="bg-details/5 border border-primary/15 p-8 md:p-12 w-full">
+      <div className="bg-details/5 border border-primary/15 p-8 xl:p-12 w-full">
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-2">
             <span className=" text-xs md:text-sm font-bold opacity-70 font-quicksand tracking-wider">
@@ -73,7 +73,7 @@ const Services = () => {
 
   return (
     <div className="flex flex-col gap-12">
-      <div className="flex flex-col md:flex-row w-full gap-4 xl:px-56 px-4">
+      <div className="flex flex-col md:flex-row w-full gap-4 xl:px-56 px-24">
         <ComponentCard number="01" title="Web Design">
           Design bem pensado para ser bonito e cativante ao mesmo tempo que
           converte seus clientes para compra do seu serviço ou produto.

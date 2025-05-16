@@ -28,7 +28,6 @@ const router = useRouter()
               .required("A senha é obrigatória"),
           })}
           onSubmit={async (values) => {
-            console.log(values);
            const response = await loginWithEmailPassword(values.email, values.password)
            if(response.status === 200){
              router.push("/private-projects")

@@ -134,7 +134,7 @@ const Process = () => {
       <h1 className="font-petit_formal_script text-4xl md:text-6xl font-light opacity-90">
         em 5 passos
       </h1>
-      <p className="text-lg md:text-2xl text-center md:w-1/4 font-light font-quicksand opacity-90">
+      <p className="text-lg md:text-2xl text-center xl:w-1/4 font-light font-quicksand opacity-90">
         O processo que funciona, deixando seu site customizado ao que você
         precisa.
       </p>

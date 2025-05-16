@@ -41,7 +41,7 @@ const Page = ({ params }: Props ) => {
       if (docSnap.exists()) {
         const data = docSnap.data();
         setInitialValues(data);
-        console.log(data);
+
         setImagePreview(data.imageBase || null);
         setTechnologies(data.tecsUseds || []);
       } else {
@@ -113,7 +113,6 @@ const Page = ({ params }: Props ) => {
     updatedTechnologies[index] = value;
     setTechnologies(updatedTechnologies);
   };
-  console.log(technologies)
   return (
     <div className="flex min-h-screen w-full items-center justify-center  p-4">
       <div className="w-full border border-primary/40 p-8 rounded-lg shadow-md max-w-[1200px]">

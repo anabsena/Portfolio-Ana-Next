@@ -24,7 +24,6 @@ const SignUpForm = () => {
           .required("A senha é obrigatória"),
       })}
       onSubmit={async (values) => {
-        console.log(values);
         const response = await signUpEmailPassword(
           values.name,
           values.email,

@@ -23,7 +23,6 @@ const Page = ({ params }: Props) => {
 
       const selectedProject = projectsList.find((p) => p.id === id);
       setProject(selectedProject);
-      console.log(selectedProject);
     } catch (error) {
       console.error("Erro ao buscar projeto:", error);
     }
