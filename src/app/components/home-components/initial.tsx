@@ -8,7 +8,7 @@ const Initial = () => {
     <div className="flex flex-col items-center gap-4 mt-8">
       <Image
         src="/img/ana-arte.png"
-        width={450}
+        width={350}
         height={760}
         alt="Logo ana"
         className="opacity-70 circular-float-animation"
@@ -24,8 +24,8 @@ const Initial = () => {
           Ajudo sua empresa a se destacar no mercado com um site bonito, bem
           pensado para converter.
         </p>
-        <div className="w-full mt-8 overflow-x-auto md:overflow-hidden">
-  <div className="flex gap-8 px-4 md:justify-center md:animate-scroll md:w-fit">
+        <div className="w-full hidden md:block md:w-1/2 xl:w-1/3 overflow-hidden mt-8 ">
+          <div className="flex justify-center animate-scroll gap-8">
             <img src="/img/icons/html.png" alt="HTML" className="w-16 h-16" />
             <img src="/img/icons/css.png" alt="CSS" className="w-16 h-16" />
             <img src="/img/icons/react.png" alt="React" className="w-16 h-16" />
